@@ -94,10 +94,34 @@ class SignInPage extends StatelessWidget {
               Center(
                 child: OutlinedButton(
                   onPressed: (){
-                    //TODO : d
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context) => ChartPage()
-                    ));
+
+                    // Navigator.push(context, MaterialPageRoute(
+                    //   builder: (context) => ChartPage()
+                    // ));
+
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (BuildContext context) {
+                      return Container(
+                        height: 300, // 모달 높이 크기
+                        margin: const EdgeInsets.only(
+                          left: 25,
+                          right: 25,
+                          bottom: 40,
+                        ), // 모달 좌우하단 여백 크기
+                        decoration: const BoxDecoration(
+                          color: Colors.white, // 모달 배경색
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20), // 모달 전체 라운딩 처리
+                          ),
+                        ),
+                        child: Text("짠~"), // 모달 내부 디자인 영역
+                      );
+                    },
+                      backgroundColor: Colors.transparent,
+                    );
+
+
 
                   },
                   child: Text("임직원 인증", style: TextStyle(color: Colors.brown)),
@@ -191,9 +215,7 @@ class ChartPage extends StatelessWidget {
                   flex: 3
               )
             ]
-
           )
-
         )
       );
   }
