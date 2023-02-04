@@ -8,11 +8,27 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
+          backgroundColor: Colors.white,
             appBar: AppBar(),
             body: ListView(
               children: [
-                Text("안녕하세요",  style: TextStyle(color: Color(0xffb17fc8)), ),
-
+                Image.asset('../assets/ci.jpeg',
+                  width: MediaQuery.of(context).size.width / 3,
+                  height: 50
+                ),
+                Center(
+                    child: Text("임직원 전용 신청 페이지",
+                      style: TextStyle(
+                        color: Colors.black87,
+                        fontSize: 32.0,
+                        fontWeight: FontWeight.bold
+                      ),
+                    )
+                ),
+                ElevatedButton(
+                  onPressed: () { },
+                  child: Text('5월 1일(월) ~ 5월 10일(수) 17:00까지'),
+                ),
                 // 이름 입력
                 Center(
                   child: Padding(
