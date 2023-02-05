@@ -9,13 +9,13 @@ class SignInPage extends StatelessWidget {
     return MaterialApp(
         home: Scaffold(
           backgroundColor: Colors.white,
-            appBar: AppBar(),
-            body: ListView(
-              children: [
-                Image.asset('../assets/ci.jpeg',
-                  width: MediaQuery.of(context).size.width / 3,
-                  height: 50
-                ),
+          appBar: AppBar(),
+          body: ListView(
+            children: [
+              Image.asset('../assets/ci.jpeg',
+                width: MediaQuery.of(context).size.width / 3,
+                height: 50
+              ),
                 Center(
                     child: Text("임직원 전용 신청 페이지",
                       style: TextStyle(

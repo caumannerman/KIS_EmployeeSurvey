@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kis_survey/signInPage.dart';
+import 'package:kis_survey/companyDetailPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +38,8 @@ class MyApp extends StatelessWidget {
     //           ]
     //         )
     return MaterialApp(
-        home: SignInPage(),
+        home: CompanyDetailPage(),
+      // home: SignInPage(),
     );
   }
 }
