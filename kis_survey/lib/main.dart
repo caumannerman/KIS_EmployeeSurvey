@@ -40,8 +40,8 @@ class MyApp extends StatelessWidget {
     //         )
     return MaterialApp(
       // home: CompanyDetailPage(),
-        home: ApplicationPage(),
-      // home: SignInPage(),
+      //   home: ApplicationPage(),
+      home: SignInPage(),
     );
   }
 }

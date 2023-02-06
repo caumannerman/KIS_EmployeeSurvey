@@ -89,12 +89,35 @@ class SignInPage extends StatelessWidget {
                 ),
 
                 // 주민등록번호 앞 6자리, 뒷 1자리
-                Center(
+              Center(
                   child: Padding(
-                    child: TextField(
-                      decoration: InputDecoration(
-                          labelText: "주민등록번호 앞 6자리"
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * 2 / 5,
+                          child: TextField(
+                            maxLength: 6,
+                            decoration: InputDecoration(
+                                labelText: "주민등록번호 앞 6자리"
+                            ),
+                          ),
+                        ),
+
+                        SizedBox(width: 10),
+                        Text(" - "),
+                        SizedBox(width: 10),
+                        //제품상세페이지 띄워줘야한다.
+                        Container(
+                          width: MediaQuery.of(context).size.width * 1 / 5,
+                          child: TextField(
+                            maxLength: 1,
+                            decoration: InputDecoration(
+                                labelText: "뒷 1자리"
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                     padding: EdgeInsets.all(20.0),
                   ),

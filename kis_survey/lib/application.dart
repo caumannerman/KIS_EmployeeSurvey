@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ApplicationPage extends StatefulWidget {
@@ -15,6 +16,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
   var selectedIndex = 0;
   var applySelected = true;
   var applyInfoSelected = false;
+  var applyCompleted = false;
 
   var sizeCheckList1 = [false, false, false, false, false];
   var sizeCheck1 = 0;
@@ -98,6 +100,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                           }
                           applySelected = true;
                           applyInfoSelected = false;
+                          applyCompleted = false;
                         });
                       },
 
@@ -125,6 +128,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                             }
                             applySelected = false;
                             applyInfoSelected = true;
+                            applyCompleted = false;
                           });
                         },
                         child: Text("신청내역 조회",
@@ -249,8 +253,18 @@ class _ApplicationPageState extends State<ApplicationPage> {
                       // Navigator.push(context, MaterialPageRoute(
                       //   builder: (context) => ChartPage()
                       // ));
+                      setState(() {
+                        //TODO: 로그인 성공시의 조건이 ()안에 들어가야함
+                        if (true){
+
+                        }
+                        applyCompleted = true;
+                        applySelected = false;
+                      });
+
+
                     },
-                    child: Text("임직원 인증", style: TextStyle(color: Colors.brown)),
+                    child: Text("임직원 인증", style: TextStyle(color: Colors.black)),
                     style: OutlinedButton.styleFrom(
                         foregroundColor: Colors.black,
                         backgroundColor: Colors.greenAccent,
@@ -259,6 +273,53 @@ class _ApplicationPageState extends State<ApplicationPage> {
                   ),
                 ),
               ),
+
+
+
+              Visibility(
+                visible: applyCompleted,
+                child: Center(
+                    child: Text("단체복 신청이 완료되었습니다",
+                      style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.bold
+                      ),
+
+                    )
+                ),
+              ),
+
+              Visibility(
+                visible: applyCompleted,
+                child: SizedBox(height: 30)
+              ),
+
+              //임직원 인증
+              Visibility(
+                visible: applyCompleted,
+                child: Center(
+                  child: OutlinedButton(
+                    onPressed: (){
+                      // Navigator.push(context, MaterialPageRoute(
+                      //   builder: (context) => ChartPage()
+                      // ));
+                    },
+                    child: Text("신청 내역 확인", style: TextStyle(color: Colors.black)),
+                    style: OutlinedButton.styleFrom(
+                        foregroundColor: Colors.black,
+                        backgroundColor: Colors.greenAccent,
+                        padding: const EdgeInsets.all(25)),
+
+                  ),
+                ),
+              ),
+
+
+
+
+
+
 
               Visibility(
                 visible: applyInfoSelected,
@@ -313,6 +374,28 @@ class _ApplicationPageState extends State<ApplicationPage> {
                         // Navigator.push(context, MaterialPageRoute(
                         //   builder: (context) => ChartPage()
                         // ));
+
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return ListView(
+                              children: [
+                                Image.asset('../assets/splash2.png',
+                                    width: MediaQuery.of(context).size.width ,
+                                    height: 300
+                                ),
+                                Image.asset('../assets/splash2.png',
+                                    width: MediaQuery.of(context).size.width / 3,
+                                    height: 300
+                                ),
+                                Image.asset('../assets/splash2.png',
+                                    width: MediaQuery.of(context).size.width / 3,
+                                    height: 300
+                                ),
+                              ],
+                            );
+                          },
+                        );
                       },
                       child: Text("제품상세", style: TextStyle(color: Colors.black)),
                       style: OutlinedButton.styleFrom(
@@ -534,6 +617,27 @@ class _ApplicationPageState extends State<ApplicationPage> {
                         // Navigator.push(context, MaterialPageRoute(
                         //   builder: (context) => ChartPage()
                         // ));
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return ListView(
+                              children: [
+                                Image.asset('../assets/splash2.png',
+                                    width: MediaQuery.of(context).size.width ,
+                                    height: 300
+                                ),
+                                Image.asset('../assets/splash2.png',
+                                    width: MediaQuery.of(context).size.width / 3,
+                                    height: 300
+                                ),
+                                Image.asset('../assets/splash2.png',
+                                    width: MediaQuery.of(context).size.width / 3,
+                                    height: 300
+                                ),
+                              ],
+                            );
+                          },
+                        );
                       },
                       child: Text("제품상세", style: TextStyle(color: Colors.black)),
                       style: OutlinedButton.styleFrom(
@@ -601,6 +705,28 @@ class _ApplicationPageState extends State<ApplicationPage> {
                         // Navigator.push(context, MaterialPageRoute(
                         //   builder: (context) => ChartPage()
                         // ));
+
+                        showCupertinoModalPopup(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return ListView(
+                              children: [
+                                Image.asset('../assets/splash2.png',
+                                    width: MediaQuery.of(context).size.width ,
+                                    height: 300
+                                ),
+                                Image.asset('../assets/splash2.png',
+                                    width: MediaQuery.of(context).size.width / 3,
+                                    height: 300
+                                ),
+                                Image.asset('../assets/splash2.png',
+                                    width: MediaQuery.of(context).size.width / 3,
+                                    height: 300
+                                ),
+                              ],
+                            );
+                          },
+                        );
                       },
                       child: Text("제품상세", style: TextStyle(color: Colors.black)),
                       style: OutlinedButton.styleFrom(
@@ -634,6 +760,31 @@ class _ApplicationPageState extends State<ApplicationPage> {
                         flex: 3
                     ),
                   ],
+                ),
+              ),
+
+              Visibility(
+                  visible: applyInfoSelected,
+                  child: SizedBox(height: 20)
+              ),
+
+
+              Visibility(
+                visible: applyInfoSelected,
+                child: Center(
+                  child: OutlinedButton(
+                    onPressed: (){
+                      // Navigator.push(context, MaterialPageRoute(
+                      //   builder: (context) => ChartPage()
+                      // ));
+                    },
+                    child: Text("신청 내역 변경", style: TextStyle(color: Colors.black)),
+                    style: OutlinedButton.styleFrom(
+                        foregroundColor: Colors.black,
+                        backgroundColor: Colors.greenAccent,
+                        padding: const EdgeInsets.all(25)),
+
+                  ),
                 ),
               ),
 
