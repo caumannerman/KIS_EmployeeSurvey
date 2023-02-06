@@ -11,6 +11,8 @@ class _ApplicationPageState extends State<ApplicationPage> {
   final _companyList = ["한국금융지주", "한국투자증권", "한국투자부동산신탁","한국투자리얼에셋"];
   var _selectedCompany = "한국금융지주";
   var selectedIndex = 0;
+  var applySelected = true;
+  var applyInfoSelected = false;
 
 
   @override
@@ -37,29 +39,53 @@ class _ApplicationPageState extends State<ApplicationPage> {
                 child: Text('5월 1일(월) ~ 5월 10일(수) 17:00까지'),
               ),
 
-              Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    OutlinedButton(
-                      onPressed: (){},
+              SizedBox(height: 30),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                children: [
+                  Expanded(
+                    child: OutlinedButton(
+                      onPressed: (){
+                        setState(() {
+                          if (applySelected){
+                            return;
+                          }
+                          applySelected = true;
+                          applyInfoSelected = false;
+                        });
+                      },
+
                       child: Text("        신청        ", style: TextStyle(color: Colors.black)),
                       style: OutlinedButton.styleFrom(
                           foregroundColor: Colors.black,
-                          backgroundColor: Colors.white,
+                          backgroundColor: applySelected ? Colors.lightBlueAccent : Colors.white70,
                           padding: const EdgeInsets.all(25)),
                     ),
-                    OutlinedButton(
-                      onPressed: (){},
-                      child: Text("신청내역 조회", style: TextStyle(color: Colors.black)),
-                      style: OutlinedButton.styleFrom(
-                          foregroundColor: Colors.black,
-                          backgroundColor: Colors.white,
-                          padding: const EdgeInsets.all(25)),
-                    ),
-                  ],
-                ),
+                    flex: 1,
+                  ),
+                  // ApplyButton(),
+                  Expanded(
+                      child:  OutlinedButton(
+                        onPressed: (){
+                          setState(() {
+                            if (applyInfoSelected){
+                              return;
+                            }
+                            applySelected = false;
+                            applyInfoSelected = true;
+                          });
+                        },
+                        child: Text("신청내역 조회", style: TextStyle(color: Colors.black)),
+                        style: OutlinedButton.styleFrom(
+                            foregroundColor: Colors.black,
+                            backgroundColor: applyInfoSelected ?  Colors.lightBlueAccent : Colors.white70,
+                            padding: const EdgeInsets.all(25)),
+                      ),
+                      flex: 1
+                  ),
+                ],
               ),
 
               Center(
@@ -155,6 +181,54 @@ class _ApplicationPageState extends State<ApplicationPage> {
 
             ]
         )
+    );
+  }
+}
+
+
+class ApplyButton extends StatelessWidget {
+  // const ApplyButton({Key? key}) : super(key: key);
+  bool selected = false;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: OutlinedButton(
+
+          onPressed: (){
+            selected = !selected;
+            print(selected);
+
+            // onChanged: (value) {
+            //   setState(() {
+            //     isCheckedList[2] = value ?? true;
+            //     for( int i = 0; i < isCheckedList.length; i ++){
+            //       if (i == 2){
+            //         continue;
+            //       }
+            //       isCheckedList[i] = false;
+            //     }
+            //   });
+            // }
+
+
+
+          },
+
+          child: Text("        신청        ", style: TextStyle(color: Colors.black)),
+          style: OutlinedButton.styleFrom(
+              foregroundColor: Colors.black,
+              backgroundColor: selected ? Colors.red : Colors.blue,
+              padding: const EdgeInsets.all(25)),
+          // style: ButtonStyle(
+          //     foregroundColor: MaterialStateProperty.all(
+          //         Colors.lightBlueAccent
+          //     ),
+          //     backgroundColor:
+          // )
+      ),
+      flex: 1,
     );
   }
 }
