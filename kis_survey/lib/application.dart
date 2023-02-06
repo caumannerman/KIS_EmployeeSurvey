@@ -14,6 +14,14 @@ class _ApplicationPageState extends State<ApplicationPage> {
   var applySelected = true;
   var applyInfoSelected = false;
 
+  var sizeCheckList1 = [false, false, false, false, false];
+  var sizeCheck1 = 0;
+
+  var sizeCheckList2 = [false, false, false, false, false];
+  var sizeCheck2 = 0;
+
+  var sizeCheckList3 = [false, false, false, false, false];
+  var sizeCheck3 = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +65,13 @@ class _ApplicationPageState extends State<ApplicationPage> {
                         });
                       },
 
-                      child: Text("        신청        ", style: TextStyle(color: Colors.black)),
+                      child: Text("        신청        ",
+                          style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.normal
+                      ),
+                      ),
                       style: OutlinedButton.styleFrom(
                           foregroundColor: Colors.black,
                           backgroundColor: applySelected ? Colors.lightBlueAccent : Colors.white70,
@@ -77,7 +91,13 @@ class _ApplicationPageState extends State<ApplicationPage> {
                             applyInfoSelected = true;
                           });
                         },
-                        child: Text("신청내역 조회", style: TextStyle(color: Colors.black)),
+                        child: Text("신청내역 조회",
+                            style: TextStyle(
+                                color: Colors.black87,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.normal
+                            ),
+                        ),
                         style: OutlinedButton.styleFrom(
                             foregroundColor: Colors.black,
                             backgroundColor: applyInfoSelected ?  Colors.lightBlueAccent : Colors.white70,
@@ -183,6 +203,396 @@ class _ApplicationPageState extends State<ApplicationPage> {
                 ),
               ),
 
+              Visibility(
+                visible: applyInfoSelected,
+                child: SizedBox(height: 30)
+              ),
+
+              ////////////////////// 여기부터 사이즈 선택 / 신청내역 조회 에 사용할 Widget
+              Visibility(
+                visible: applyInfoSelected,
+                child: Center(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width / 2,
+                      height: 60,
+                      color: Colors.white,
+                      alignment: Alignment.center,
+                      child: Text("단체복 신청",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.bold
+                        ),
+                      )
+                  ),
+                ),
+              ),
+
+
+              Visibility(
+                visible: applyInfoSelected,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                        // width: MediaQuery.of(context).size.width / 2,
+                        height: 60,
+                        color: Colors.white,
+                        alignment: Alignment.centerLeft,
+                        child: Text("1.밀레 남성 기능성 자켓",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold
+                          ),
+                        )
+                    ),
+                    SizedBox(width: 20),
+                    //제품상세페이지 띄워줘야한다.
+                    OutlinedButton(
+                      onPressed: (){
+                        // Navigator.push(context, MaterialPageRoute(
+                        //   builder: (context) => ChartPage()
+                        // ));
+                      },
+                      child: Text("제품상세", style: TextStyle(color: Colors.black)),
+                      style: OutlinedButton.styleFrom(
+                          foregroundColor: Colors.black,
+                          backgroundColor: Colors.lightGreenAccent,
+                          padding: const EdgeInsets.all(5)
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+
+              Visibility(
+                visible: applyInfoSelected,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: Image.asset('../assets/splash2.png',
+                          // width: MediaQuery.of(context).size.width / 4,
+                          height: 200
+                      ),
+                      flex: 2,
+                    ),
+                    Expanded(
+                        child:  Container(
+                          // width: MediaQuery.of(context).size.width / 2,
+                            height: 200,
+                            color: Colors.greenAccent
+                        ),
+                        flex: 3
+                    ),
+                  ],
+                ),
+              ),
+
+
+              Visibility(
+                visible: applyInfoSelected,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      // width: MediaQuery.of(context).size.width / 2,
+                        height: 60,
+                        color: Colors.white,
+                        alignment: Alignment.centerLeft,
+                        child: Text("사이즈 선택",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold
+                          ),
+                        )
+                    ),
+                    SizedBox(width: 10),
+                    Text("90",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold
+                      ),
+                    ),
+                    Checkbox(
+                      activeColor: Colors.white,
+                      checkColor: Colors.red,
+                      value: sizeCheckList1[0],
+                      onChanged: (value) {
+                        setState(() {
+                          sizeCheckList1[0] = value ?? true;
+                          sizeCheck1 = 0;
+                          for( int i = 0; i < sizeCheckList1.length; i ++){
+                            if (i == 0){
+                              continue;
+                            }
+                            sizeCheckList1[i] = false;
+                          }
+                        });
+                      },
+                    ),
+                    Text("95",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Checkbox(
+                      activeColor: Colors.white,
+                      checkColor: Colors.red,
+                      value: sizeCheckList1[1],
+                      onChanged: (value) {
+                        setState(() {
+                          sizeCheckList1[1] = value ?? true;
+                          sizeCheck1 = 1;
+                          for( int i = 0; i < sizeCheckList1.length; i ++){
+                            if (i == 1){
+                              continue;
+                            }
+                            sizeCheckList1[i] = false;
+                          }
+                        });
+                      },
+                    ),
+                    Text("100",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold
+                      ),
+                    ),
+                    Checkbox(
+                      activeColor: Colors.white,
+                      checkColor: Colors.red,
+                      value: sizeCheckList1[2],
+                      onChanged: (value) {
+                        setState(() {
+                          sizeCheckList1[2] = value ?? true;
+                          sizeCheck1 = 2;
+                          for( int i = 0; i < sizeCheckList1.length; i ++){
+                            if (i == 2){
+                              continue;
+                            }
+                            sizeCheckList1[i] = false;
+                          }
+                        });
+                      },
+                    ),
+                    Text("105",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold
+                      ),
+                    ),
+                    Checkbox(
+                      activeColor: Colors.white,
+                      checkColor: Colors.red,
+                      value: sizeCheckList1[3],
+                      onChanged: (value) {
+                        setState(() {
+                          sizeCheckList1[3] = value ?? true;
+                          sizeCheck1 = 3;
+                          for( int i = 0; i < sizeCheckList1.length; i ++){
+                            if (i == 3){
+                              continue;
+                            }
+                            sizeCheckList1[i] = false;
+                          }
+                        });
+                      },
+                    ),
+                    Text("110",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold
+                      ),
+                    ),
+
+                    Checkbox(
+                      activeColor: Colors.white,
+                      checkColor: Colors.red,
+                      value: sizeCheckList1[4],
+                      onChanged: (value) {
+                        setState(() {
+                          sizeCheckList1[4] = value ?? true;
+                          sizeCheck1 = 4;
+                          for( int i = 0; i < sizeCheckList1.length; i ++){
+                            if (i == 4){
+                              continue;
+                            }
+                            sizeCheckList1[i] = false;
+                          }
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
+
+              Visibility(
+                  visible: applyInfoSelected,
+                  child: SizedBox(height: 20)
+              ),
+
+
+              Visibility(
+                visible: applyInfoSelected,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      // width: MediaQuery.of(context).size.width / 2,
+                        height: 60,
+                        color: Colors.white,
+                        alignment: Alignment.centerLeft,
+                        child: Text("2.밀레 남성 카라 티셔츠",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold
+                          ),
+                        )
+                    ),
+                    SizedBox(width: 20),
+                    //제품상세페이지 띄워줘야한다.
+                    OutlinedButton(
+                      onPressed: (){
+                        // Navigator.push(context, MaterialPageRoute(
+                        //   builder: (context) => ChartPage()
+                        // ));
+                      },
+                      child: Text("제품상세", style: TextStyle(color: Colors.black)),
+                      style: OutlinedButton.styleFrom(
+                          foregroundColor: Colors.black,
+                          backgroundColor: Colors.lightGreenAccent,
+                          padding: const EdgeInsets.all(5)
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              Visibility(
+                visible: applyInfoSelected,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: Image.asset('../assets/splash2.png',
+                          // width: MediaQuery.of(context).size.width / 4,
+                          height: 200
+                      ),
+                      flex: 2,
+                    ),
+                    Expanded(
+                        child:  Container(
+                          // width: MediaQuery.of(context).size.width / 2,
+                            height: 200,
+                            color: Colors.blueAccent
+                        ),
+                        flex: 3
+                    ),
+                  ],
+                ),
+              ),
+
+              Visibility(
+                  visible: applyInfoSelected,
+                  child: SizedBox(height: 20)
+              ),
+
+              Visibility(
+                visible: applyInfoSelected,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      // width: MediaQuery.of(context).size.width / 2,
+                        height: 60,
+                        color: Colors.white,
+                        alignment: Alignment.centerLeft,
+                        child: Text("3.밀레 남성 바지",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold
+                          ),
+                        )
+                    ),
+                    SizedBox(width: 20),
+                    //제품상세페이지 띄워줘야한다.
+                    OutlinedButton(
+                      onPressed: (){
+                        // Navigator.push(context, MaterialPageRoute(
+                        //   builder: (context) => ChartPage()
+                        // ));
+                      },
+                      child: Text("제품상세", style: TextStyle(color: Colors.black)),
+                      style: OutlinedButton.styleFrom(
+                          foregroundColor: Colors.black,
+                          backgroundColor: Colors.lightGreenAccent,
+                          padding: const EdgeInsets.all(5)
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              Visibility(
+                visible: applyInfoSelected,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: Image.asset('../assets/splash2.png',
+                          // width: MediaQuery.of(context).size.width / 4,
+                          height: 200
+                      ),
+                      flex: 2,
+                    ),
+                    Expanded(
+                        child:  Container(
+                          // width: MediaQuery.of(context).size.width / 2,
+                            height: 200,
+                            color: Colors.orangeAccent
+                        ),
+                        flex: 3
+                    ),
+                  ],
+                ),
+              ),
+
+              Visibility(
+                  visible: applyInfoSelected,
+                  child: SizedBox(height: 20)
+              ),
+
+
+
+
+
+
+
+
+
               const Center(
                   child: Text("담당자 : 총무부 XXX(02-3276-XXXX)",  style: TextStyle(color: Color(0xffb17fc8)), )
               ),
@@ -197,54 +607,6 @@ class _ApplicationPageState extends State<ApplicationPage> {
 
             ]
         )
-    );
-  }
-}
-
-
-class ApplyButton extends StatelessWidget {
-  // const ApplyButton({Key? key}) : super(key: key);
-  bool selected = false;
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: OutlinedButton(
-
-          onPressed: (){
-            selected = !selected;
-            print(selected);
-
-            // onChanged: (value) {
-            //   setState(() {
-            //     isCheckedList[2] = value ?? true;
-            //     for( int i = 0; i < isCheckedList.length; i ++){
-            //       if (i == 2){
-            //         continue;
-            //       }
-            //       isCheckedList[i] = false;
-            //     }
-            //   });
-            // }
-
-
-
-          },
-
-          child: Text("        신청        ", style: TextStyle(color: Colors.black)),
-          style: OutlinedButton.styleFrom(
-              foregroundColor: Colors.black,
-              backgroundColor: selected ? Colors.red : Colors.blue,
-              padding: const EdgeInsets.all(25)),
-          // style: ButtonStyle(
-          //     foregroundColor: MaterialStateProperty.all(
-          //         Colors.lightBlueAccent
-          //     ),
-          //     backgroundColor:
-          // )
-      ),
-      flex: 1,
     );
   }
 }
