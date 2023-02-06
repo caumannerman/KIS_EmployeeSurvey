@@ -88,82 +88,98 @@ class _ApplicationPageState extends State<ApplicationPage> {
                 ],
               ),
 
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: DropdownButton(
-                    value: _selectedCompany,
-                    items: _companyList.map(
-                        (value) {
-                          return DropdownMenuItem(
-                            value: value,
-                            child: Text(value),
-                          );
-                        },
-                    ).toList(),
-                    onChanged: (value){
-                      setState(
-                          (){
-                            _selectedCompany = value ?? "한국투자증권";
-                          }
-                      );
-                    },
-                  ),
-                )
+
+              Visibility(
+                visible: applySelected,
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: DropdownButton(
+                      value: _selectedCompany,
+                      items: _companyList.map(
+                          (value) {
+                            return DropdownMenuItem(
+                              value: value,
+                              child: Text(value),
+                            );
+                          },
+                      ).toList(),
+                      onChanged: (value){
+                        setState(
+                            (){
+                              _selectedCompany = value ?? "한국투자증권";
+                            }
+                        );
+                      },
+                    ),
+                  )
+                ),
               ),
 
 
-              Center(
-                child: Padding(
-                  child: TextField(
-                    decoration: InputDecoration(
-                        labelText: "이름"
+              Visibility(
+                visible: applySelected,
+                child: Center(
+                  child: Padding(
+                    child: TextField(
+                      decoration: InputDecoration(
+                          labelText: "이름"
+                      ),
                     ),
+                    padding: EdgeInsets.all(20.0),
                   ),
-                  padding: EdgeInsets.all(20.0),
                 ),
               ),
 
               // 사번
-              Center(
-                child: Padding(
-                  child: TextField(
-                    decoration: InputDecoration(
-                        labelText: "사번"
+               Visibility(
+                visible: applySelected,
+                child: Center(
+                  child: Padding(
+                    child: TextField(
+                      decoration: InputDecoration(
+                          labelText: "사번"
+                      ),
                     ),
+                    padding: EdgeInsets.all(20.0),
                   ),
-                  padding: EdgeInsets.all(20.0),
                 ),
               ),
 
               // 주민등록번호 앞 6자리, 뒷 1자리
-              Center(
-                child: Padding(
-                  child: TextField(
-                    decoration: InputDecoration(
-                        labelText: "주민등록번호 앞 6자리"
+              Visibility(
+                visible: applySelected,
+                child: Center(
+                  child: Padding(
+                    child: TextField(
+                      decoration: InputDecoration(
+                          labelText: "주민등록번호 앞 6자리"
+                      ),
                     ),
+                    padding: EdgeInsets.all(20.0),
                   ),
-                  padding: EdgeInsets.all(20.0),
                 ),
               ),
 
               //임직원 인증
-              Center(
-                child: OutlinedButton(
-                  onPressed: (){
+              Visibility(
+                visible: applySelected,
+                child: Center(
+                  child: OutlinedButton(
+                    onPressed: (){
 
-                    // Navigator.push(context, MaterialPageRoute(
-                    //   builder: (context) => ChartPage()
-                    // ));
+                      // Navigator.push(context, MaterialPageRoute(
+                      //   builder: (context) => ChartPage()
+                      // ));
 
-                  },
-                  child: Text("임직원 인증", style: TextStyle(color: Colors.brown)),
-                  style: OutlinedButton.styleFrom(
-                      foregroundColor: Colors.black,
-                      backgroundColor: Colors.greenAccent,
-                      padding: const EdgeInsets.all(25)),
+                    },
+                    child: Text("임직원 인증", style: TextStyle(color: Colors.brown)),
+                    style: OutlinedButton.styleFrom(
+                        foregroundColor: Colors.black,
+                        backgroundColor: Colors.greenAccent,
+                        padding: const EdgeInsets.all(25)),
 
+                  ),
                 ),
               ),
 
