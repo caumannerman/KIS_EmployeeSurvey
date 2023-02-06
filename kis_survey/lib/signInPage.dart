@@ -16,6 +16,41 @@ class SignInPage extends StatelessWidget {
                 width: MediaQuery.of(context).size.width / 3,
                 height: 50
               ),
+              SizedBox(height: 10),
+
+              Container(
+                height: 50,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+
+                  children: [
+                    Image.asset('../assets/ci3.png',
+                        width: MediaQuery.of(context).size.width / 3,
+                        height: 50
+                    ),
+
+                    Container(
+                        alignment: Alignment.center,
+                        width:  MediaQuery.of(context).size.width / 3,
+                        height: 50,
+                        child: Text("FESTIVAL",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 30.0,
+                              fontWeight: FontWeight.bold
+                          ),
+                        )
+                    ),
+                  ],
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+
+
                 Center(
                     child: Text("임직원 전용 신청 페이지",
                       style: TextStyle(

@@ -10,6 +10,8 @@ class ApplicationPage extends StatefulWidget {
 class _ApplicationPageState extends State<ApplicationPage> {
   final _companyList = ["한국금융지주", "한국투자증권", "한국투자부동산신탁","한국투자리얼에셋"];
   var _selectedCompany = "한국금융지주";
+  final _genderList = ["남", "여"];
+  var _selectedGender = "남";
   var selectedIndex = 0;
   var applySelected = true;
   var applyInfoSelected = false;
@@ -33,6 +35,40 @@ class _ApplicationPageState extends State<ApplicationPage> {
                   width: MediaQuery.of(context).size.width / 3,
                   height: 50
               ),
+
+              SizedBox(height: 10),
+
+              Container(
+                height: 50,
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+
+                    children: [
+                      Image.asset('../assets/ci3.png',
+                            width: MediaQuery.of(context).size.width / 3,
+                            height: 50
+                        ),
+
+                      Container(
+                          alignment: Alignment.center,
+                          width:  MediaQuery.of(context).size.width / 3,
+                          height: 50,
+                          child: Text("FESTIVAL",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.black87,
+                                fontSize: 30.0,
+                                fontWeight: FontWeight.bold
+                            ),
+                          )
+                        ),
+                    ],
+                  ),
+              ),
+
+              SizedBox(height: 20),
+
               Center(
                   child: Text("임직원 전용 신청 페이지",
                     style: TextStyle(
@@ -166,15 +202,38 @@ class _ApplicationPageState extends State<ApplicationPage> {
                 ),
               ),
 
-              // 주민등록번호 앞 6자리, 뒷 1자리
+
               Visibility(
                 visible: applySelected,
                 child: Center(
                   child: Padding(
-                    child: TextField(
-                      decoration: InputDecoration(
-                          labelText: "주민등록번호 앞 6자리"
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * 2 / 5,
+                          child: TextField(
+                            maxLength: 6,
+                            decoration: InputDecoration(
+                                labelText: "주민등록번호 앞 6자리"
+                            ),
+                          ),
+                        ),
+
+                        SizedBox(width: 10),
+                        Text(" - "),
+                        SizedBox(width: 10),
+                        //제품상세페이지 띄워줘야한다.
+                        Container(
+                          width: MediaQuery.of(context).size.width * 1 / 5,
+                          child: TextField(
+                            maxLength: 1,
+                            decoration: InputDecoration(
+                                labelText: "뒷 1자리"
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                     padding: EdgeInsets.all(20.0),
                   ),
@@ -187,11 +246,9 @@ class _ApplicationPageState extends State<ApplicationPage> {
                 child: Center(
                   child: OutlinedButton(
                     onPressed: (){
-
                       // Navigator.push(context, MaterialPageRoute(
                       //   builder: (context) => ChartPage()
                       // ));
-
                     },
                     child: Text("임직원 인증", style: TextStyle(color: Colors.brown)),
                     style: OutlinedButton.styleFrom(
