@@ -30,5 +30,8 @@ Firebase Database에 정보보안에 문제가 되지 않을 Data들만을 담�
 > ### Flutter 웹앱 Firebase 배포 방법
   1. npm install -g firebase-tools 로 최신버전 업데이트
   2. firebase init
-  3. flutter build web
-  4. firebase deploy
+  3. 아래와 같이 선택
+<img width="552" alt="스크린샷 2023-09-15 오후 5 42 54" src="https://github.com/caumannerman/KIS_EmployeeSurvey/assets/75043852/5441e549-5f7e-425a-b0b7-a6c8d83bdc8c">
+
+  5. flutter build web
+  6. firebase deploy
