@@ -26,3 +26,9 @@ Firebase Database에 정보보안에 문제가 되지 않을 Data들만을 담�
 <img width="200" alt="스크린샷 2022-03-06 오전 1 12 51" src="https://user-images.githubusercontent.com/75043852/156891398-ee6627bf-78c7-48af-965a-fc429078bf96.png">
 <img width="200" alt="스크린샷 2022-03-06 오전 1 13 02" src="https://user-images.githubusercontent.com/75043852/156891401-61217d85-6b98-4603-a2d8-ded7b2c5078b.png">
 </p>
+
+> ### Flutter 웹앱 Firebase 배포 방법
+  1. npm install -g firebase-tools 로 최신버전 업데이트
+  2. firebase init
+  3. flutter build web
+  4. firebase deploy
