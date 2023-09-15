@@ -17,16 +17,10 @@ FY2022 신입사원 연수 활동의 일환으로 2023년 6월에 있을 TrueFri
 <img width="200" alt="스크린샷 2022-03-06 오전 1 12 26" src="https://github.com/caumannerman/KIS_EmployeeSurvey/assets/75043852/3c114ae0-3d3d-4001-8965-7a7eba9a5fbc">
 <img width="200" alt="스크린샷 2022-03-06 오전 1 12 26" src="https://github.com/caumannerman/KIS_EmployeeSurvey/assets/75043852/57b34e71-f0de-4ceb-b777-66040b5a02ed">
 <img width="200" alt="스크린샷 2022-03-06 오전 1 12 26" src="https://github.com/caumannerman/KIS_EmployeeSurvey/assets/75043852/4b0f4fd6-f2a3-47e5-9b7c-04debc1c3dd2">
-<img width="200" alt="스크린샷 2022-03-06 오전 1 12 26" src="https://github.com/caumannerman/KIS_EmployeeSurvey/assets/75043852/5a6183e6-b159-440f-aafb-ae4dbbf68332">
 <img width="200" alt="스크린샷 2022-03-06 오전 1 12 26" src="https://github.com/caumannerman/KIS_EmployeeSurvey/assets/75043852/97294b41-55ab-4173-bc7e-1f0ca03c7f7a">
-<img width="200" alt="스크린샷 2022-03-06 오전 1 12 26" src="https://github.com/caumannerman/KIS_EmployeeSurvey/assets/75043852/be7fc579-9eac-4a39-aa3c-de4a16ece4d1">
-<img width="200" alt="스크린샷 2022-03-06 오전 1 12 26" src="https://github.com/caumannerman/KIS_EmployeeSurvey/assets/75043852/52d06ae5-d03e-4181-a230-db45c73e1fc4">
 <img width="200" alt="스크린샷 2022-03-06 오전 1 12 26" src="https://github.com/caumannerman/KIS_EmployeeSurvey/assets/75043852/2d080a36-6694-4893-8dff-538e1ba08ee8">
-<img width="200" alt="스크린샷 2022-03-06 오전 1 12 26" src="https://github.com/caumannerman/KIS_EmployeeSurvey/assets/75043852/a6148f9c-5590-4014-89c1-1605e88ff318">
 <img width="200" alt="스크린샷 2022-03-06 오전 1 12 26" src="https://github.com/caumannerman/KIS_EmployeeSurvey/assets/75043852/a778f61c-cfee-443f-aa3c-5c432f648be7">
-
 </p>
-
 
 
 > ### 개발 과정
